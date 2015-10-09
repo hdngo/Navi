@@ -43,7 +43,8 @@ $(document).ready(function(){
 		 	}).done(function(response){
 		 		console.log(response)
 		 		response.results.forEach(function(result){
-		 			var resultLink = "<a href=" + result.image_url + " ><img height=258 width=258 src="+ result["image_url"] + " </a>"
+		 			var resultData = JSON.stringify(extractResultData(result))
+		 			var resultLink = "<a href=" + result.image_url + " data-result-data='" + resultData + "' ><img height=258 width=258 src="+ result["image_url"] + " </a>"
 		 			$('#results-container').append(resultLink);
 		 		})
 		 		if(response.next_page === true){
@@ -68,7 +69,8 @@ $(document).ready(function(){
 		 	}).done(function(response){
 		 		console.log('success')
 		 		response.results.forEach(function(result){
-		 			var resultLink = "<a href=" + result.image_url + " ><img height=258 width=258 src="+ result["image_url"] + " </a>"
+		 			var resultData = JSON.stringify(extractResultData(result))
+		 			var resultLink = "<a href=" + result.image_url + " data-result-data='" + resultData + "' ><img height=258 width=258 src="+ result["image_url"] + " </a>"
 		 			$('#results-container').append(resultLink);
 		 		})
 		 		if(response.next_page === true){
@@ -78,5 +80,10 @@ $(document).ready(function(){
 		 		console.log("failure")
 		 	})
 	})
+
+	function extractResultData(result){
+	resultData = {content_type: result["content_type"], ig_username: result["ig_username"], ig_link: result["ig_link"], image_url: result["image_url"], video_url: result["video_url"], description: result["description"]}
+	return resultData
+	}
 })
 
