@@ -27,11 +27,15 @@ $(document).ready(function(){
 		 		contentType:"application/json; charset=utf-8",
 		 		dataType: "json"
 		 	}).done(function(response){
-		 		console.log("success")
-		 		// console.log(response)
-		 		response.forEach(function(result){
-		 			console.log(result);
+		 		console.log(response)
+		 		response.results.forEach(function(result){
+		 			var myImage = new Image(258, 258);
+		 			myImage.src = result["image_url"];
+		 			$(document.body).append(myImage);
 		 		})
+		 		if(response.next_page === true){
+		 			$(document.body).append('<button type="button">Load More</button>')
+		 		}
 		 	}).fail(function(response){
 		 		console.log("failure")
 		 	})
