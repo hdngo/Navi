@@ -1,8 +1,4 @@
 $(document).ready(function(){
-	// $('.start').on('click', function(){
-	// 	$(location).attr('href', "https://instagram.com/oauth/authorize/?client_id=4080341888cb4239bbae9b7b67f3240c&redirect_uri=http://localhost:8000&response_type=token");
-	// 	// $(location).attr('href', "http://localhost:8000/home.html")
-	// })
 
 //https://api.instagram.com/v1/tags/{snow}/media/recent?access_token=ACCESS-TOKEN
 	$('#searchbar').on('submit', function(e){
@@ -34,12 +30,39 @@ $(document).ready(function(){
 		 			$(document.body).append(myImage);
 		 		})
 		 		if(response.next_page === true){
-		 			$(document.body).append('<button type="button">Load More</button>')
+		 			$(document.body).append('<button class="load" id=' + response.search_id + ' type="button">Load More</button>')
 		 		}
 		 	}).fail(function(response){
 		 		console.log("failure")
 		 	})
 	})
 
+	$(document).on('click', '.load', function(e){
+		e.preventDefault();
+		console.log('render me media minion');
+		var resultOffset = $('img').length;
+		console.log(resultOffset)
+		var searchId = $(this).attr('id')
+		$(this).fadeOut();
+		$(this).remove();
+		$.ajax({
+			url: 'http://localhost:3000/api/v1/searches/' + searchId + '/results/page/' + resultOffset,
+			type:"GET",
+			dataType: "json"
+		 	}).done(function(response){
+		 		console.log('success')
+		 		console.log(response);
+		 		response.results.forEach(function(result){
+		 			var myImage = new Image(258, 258);
+		 			myImage.src = result["image_url"];
+		 			$(document.body).append(myImage);
+		 		})
+		 		if(response.next_page === true){
+		 			$(document.body).append('<button class="load" id=' + response.search_id + ' type="button">Load More</button>')
+		 		}
+		 	}).fail(function(response){
+		 		console.log("failure")
+		 	})
+	})
 })
 
