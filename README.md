@@ -9,6 +9,7 @@ After forking and cloning the back-end repo to your local environment, while in 
 * Run `redis-server /usr/local/etc/redis.conf`, the default command to kick off the Redis server.
 * Run `bundle install`, to install all gem dependencies
 * Run `bundle exec sidekiq`, to start up Sidekiq so that it can perform the background job of querying the Instagram API.
+* Run `bundle exec rake db:create; bundle exec rake db:migrate` to set up the database locally.
 * Run `bundle exec rails s`, to start up the Rails server
 NOTE: The client side is currently setup to use the default ports for Rails and Redis, being 3000 and 6379.
 
