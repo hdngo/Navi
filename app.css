@@ -6,7 +6,7 @@ html{
 
 body{
 	background-color: #FAFAFA;
-	margin:0;
+	margin: 0 0 60px 0;
 	padding:0;
 }
 
@@ -48,25 +48,45 @@ body{
 	font-size:12px;
 }
 
+#searchbar > input, #searchbar > label{
+	line-height: 2em;
+	margin-left: 5px;
+}
+
 #searchbar >input[type="text"]{
 	text-indent: 24px;
 	width: 150px;
 }
 
+#searchbar > input[type="submit"]{
+	line-height: 1.8em;
+	background-color: white;
+}
+
+#searchbar > input[type="submit"]:hover{
+	cursor: pointer;
+}
+
 #searchbar > label{
 	color: white;
+	font-size: 14px;
 }
 
-#searchbar > input, #searchbar > label{
-	line-height: 2em;
-}
 
 #results-container{
-	margin-top: 25px;
+	margin-top: 60px;
 	width: 90%;
 	padding-left: 10%;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+a{
+	text-decoration: none
+}
+
+a, a:hover, a:visited{
+	color: #EB66A7;
 }
 
 img{
