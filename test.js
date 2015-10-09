@@ -23,6 +23,7 @@ $(document).ready(function(){
 		formattedData = formData.forEach(function(object){
 			formJSON[object.name] = object.value;
 		})
+		formJSON.hashtag = formJSON.hashtag.toLowerCase();
 		formJSON.start_date = Date.parse(formatDate(formJSON.start_date))
 		formJSON.end_date = Date.parse(formatDate(formJSON.end_date))
 
