@@ -12,7 +12,12 @@ $(document).ready(function(){
 		data.start_date = Date.parse(data.start_date)/1000
 		data.end_date = Date.parse(data.end_date)/1000
 		console.log(data)
-		// var formData = $(this).serialize();
+		// var formData = $(this).serializeArray();
+		// var formJSON = {};
+		// formattedData = formData.forEach(function(object){
+		// 	formJSON[object.name] = object.value;
+		// })
+		// console.log(formJSON)
 		// y = Date.parse(x)/1000
 		//unix is in seconds, Date.parse gives you ms
 		$.ajax({
@@ -23,7 +28,10 @@ $(document).ready(function(){
 		 		dataType: "json"
 		 	}).done(function(response){
 		 		console.log("success")
-		 		console.log(response)
+		 		// console.log(response)
+		 		response.forEach(function(result){
+		 			console.log(result);
+		 		})
 		 	}).fail(function(response){
 		 		console.log("failure")
 		 	})
