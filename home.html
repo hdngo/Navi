@@ -3,8 +3,22 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="./app.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="./app.js" async></script>
 </head>
 <body>
-	<p>You've been logged in!</p>
+	<div id="navbar">
+		<form id="searchbar">
+			<input type="text" name="hashtag" placeholder="Enter a hashtag!" required>
+			<label for="start-date">Start Date</label>
+			<input type="date" id="start-date" name="start_date" required>
+			<label for="end-date">End Date</label>
+			<input type="date" id="end-date" name="end_date" required>
+			<input type="submit" value="Search">
+		</form>
+	</div>
+	<div id="results-container">
+	</div>
 </body>
 </html>
