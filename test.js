@@ -43,9 +43,8 @@ $(document).ready(function(){
 		 	}).done(function(response){
 		 		console.log(response)
 		 		response.results.forEach(function(result){
-		 			var myImage = new Image(258, 258);
-		 			myImage.src = result["image_url"];
-		 			$(document.body).append(myImage);
+		 			var resultLink = "<a href=" + result.image_url + " ><img height=258 width=258 src="+ result["image_url"] + " </a>"
+		 			$(document.body).append(resultLink);
 		 		})
 		 		if(response.next_page === true){
 		 			$(document.body).append('<button class="load" id=' + response.search_id + ' type="button">Load More</button>')
@@ -69,9 +68,8 @@ $(document).ready(function(){
 		 	}).done(function(response){
 		 		console.log('success')
 		 		response.results.forEach(function(result){
-		 			var myImage = new Image(258, 258);
-		 			myImage.src = result["image_url"];
-		 			$(document.body).append(myImage);
+		 			var resultLink = "<a href=" + result.image_url + " ><img height=258 width=258 src="+ result["image_url"] + " </a>"
+		 			$(document.body).append(resultLink);
 		 		})
 		 		if(response.next_page === true){
 		 			$(document.body).append('<button class="load" id=' + response.search_id + ' type="button">Load More</button>')
