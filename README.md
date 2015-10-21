@@ -27,6 +27,11 @@ Afterwards, you can open up the client on Heroku using this [link](http://navi-t
 * A user can click on a link to go to the native location of the Instagram post.
 * A user should receive an 'error message' if they choose an invalid date.
 
+##Screenshots
+![findmiyazaki](https://github.com/hdngo/Navi/blob/master/navi-screenshots/basic-search.png?raw=true)
+![pagination](https://github.com/hdngo/Navi/blob/master/navi-screenshots/paginate.png?raw=true)
+![content-view](https://github.com/hdngo/Navi/blob/master/navi-screenshots/content-view.png?raw=true)
+
 ##Potential Issues Found Thus Far
 * When making GET requests to the Instagram API, an occasional undefined method error is generated, which causes causes the server side to pause its processing. This results in some results having undefined values and can delay a user's pagination.
 * The results content may be slow to load.
